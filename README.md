@@ -1,6 +1,8 @@
 # 🎬 Simple Movie Search App
 
 ### 🔗 [Открыть сайт (Demo)](https://arseniskenderov45-pixel.github.io/Movie-Search-Website-with-API/)
+[Дизайн в Figma](https://www.figma.com/make/2TCOB9gLqd1Pg0fHgLyyd9/Simple-Movie-Search?fullscreen=1&t=pi5PWJGFflHriZOP-1)
+[Презентация](https://www.canva.com/design/DAG71sZxCuc/B2y5124an0a5TWFz9PmSdQ/edit?utm_content=DAG71sZxCuc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ---
 
@@ -28,7 +30,7 @@
 1.  Скачайте этот репозиторий.
 2.  Откройте файл `index.html` в браузере.
 
-[Дизайн в Figma](https://www.figma.com/make/2TCOB9gLqd1Pg0fHgLyyd9/Simple-Movie-Search?fullscreen=1&t=pi5PWJGFflHriZOP-1)
+
 ---
 **Разработчик:** Iskenderov Arsen
 
