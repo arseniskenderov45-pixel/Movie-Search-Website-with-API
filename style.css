@@ -1,0 +1,144 @@
+:root {
+    --bg-color: #F0FDF4; /* Светло-мятный фон */
+    --card-bg: #FFFFFF;
+    --text-main: #111827;
+    --text-muted: #6B7280;
+    --primary: #16A34A;
+    --primary-light: #DCFCE7;
+    --border: #E5E7EB;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+body { 
+    background-color: var(--bg-color); 
+    color: var(--text-main); 
+    min-height: 100vh; 
+    padding: 20px;
+}
+
+.app-container { max-width: 1200px; margin: 0 auto; }
+
+/* Header */
+header { margin-bottom: 30px; text-align: center; }
+h1 { font-size: 28px; font-weight: 700; color: #14532D; margin-bottom: 8px; }
+.subtitle { color: var(--text-muted); font-size: 16px; }
+
+/* --- Adaptive Controls Section --- */
+.controls-section { 
+    margin-bottom: 30px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+/* На планшетах и ПК выстраиваем в строку */
+@media (min-width: 768px) {
+    header { text-align: left; margin-bottom: 40px; }
+    h1 { font-size: 32px; }
+    
+    .controls-section { 
+        flex-direction: row; 
+        align-items: center; 
+        justify-content: space-between; 
+    }
+    .search-wrapper { flex: 1; max-width: 500px; margin-bottom: 0; }
+}
+
+/* Search Input */
+.search-wrapper { position: relative; width: 100%; }
+.search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none;}
+
+#search-input {
+    width: 100%; padding: 14px 14px 14px 45px;
+    border: 1px solid var(--border); border-radius: 12px;
+    font-size: 16px; outline: none; transition: 0.2s;
+    background: white; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+#search-input:focus { border-color: var(--primary); ring: 2px solid var(--primary); }
+
+/* Toolbar (Counter + Toggles) */
+.toolbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; /* На мобилках растягиваем */
+}
+@media (min-width: 768px) { .toolbar { width: auto; gap: 20px; } }
+
+#count-label { color: var(--text-muted); font-size: 14px; font-weight: 500; }
+
+.view-toggles { display: flex; gap: 8px; }
+.toggle-btn {
+    background: white; border: 1px solid var(--border);
+    padding: 8px 12px; border-radius: 6px; cursor: pointer; color: var(--text-muted);
+    transition: 0.2s; display: flex; align-items: center; justify-content: center;
+}
+.toggle-btn:hover { background: #F9FAFB; }
+.toggle-btn.active { background: var(--primary-light); color: var(--primary); border-color: #86EFAC; }
+
+/* --- Grid Layout --- */
+.movies-grid {
+    display: grid; 
+    /* Адаптивная сетка: карты сжимаются до 240px, если меньше - перенос */
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
+    gap: 20px;
+}
+
+/* --- List Layout --- */
+.movies-list { display: flex; flex-direction: column; gap: 16px; }
+
+/* Cards Styling */
+.movie-card {
+    background: var(--card-bg); border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--border); transition: 0.3s; cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    display: flex; flex-direction: column;
+}
+.movie-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border-color: var(--primary); }
+
+.movie-card img { width: 100%; aspect-ratio: 2/3; object-fit: cover; background: #eee; }
+.card-content { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+
+.card-title { font-weight: 600; font-size: 17px; margin-bottom: 8px; line-height: 1.4; color: #1F2937; }
+.card-meta { margin-top: auto; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+.badge { 
+    background: #F3F4F6; color: #374151; 
+    padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; 
+}
+.type-badge { background: var(--primary-light); color: #15803D; }
+
+/* --- List View Specifics --- */
+.movies-list .movie-card { flex-direction: row; height: auto; min-height: 140px; align-items: stretch; }
+.movies-list .movie-card img { width: 100px; aspect-ratio: auto; height: auto; }
+@media (max-width: 480px) {
+    /* На очень маленьких экранах в режиме списка картинку можно уменьшить или скрыть */
+    .movies-list .movie-card img { width: 80px; }
+    .card-title { font-size: 15px; }
+}
+
+/* Empty State */
+#empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+.empty-icon { font-size: 48px; margin-bottom: 15px; opacity: 0.3; }
+.hidden { display: none !important; }
+
+/* Modal */
+#modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.6); 
+    backdrop-filter: blur(4px);
+    display: flex; justify-content: center; align-items: center; z-index: 100;
+    padding: 20px;
+}
+.modal-card { 
+    background: white; padding: 25px; border-radius: 20px; 
+    max-width: 600px; width: 100%; position: relative; 
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    max-height: 90vh; overflow-y: auto; /* Скролл если экран маленький */
+}
+#close-btn { 
+    position: absolute; top: 15px; right: 20px; 
+    border: none; background: #F3F4F6; width: 32px; height: 32px; border-radius: 50%;
+    font-size: 20px; cursor: pointer; color: #4B5563; display: flex; align-items: center; justify-content: center;
+}
+#close-btn:hover { background: #E5E7EB; color: #111; }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Movie Search</title>
+
+    <link rel="icon" type="image/png" href="img/alatoo favicon.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1>Movie Search</h1>
+        <p class="subtitle">Discover your next favorite movie</p>
+      </header>
+
+      <div class="controls-section">
+        <div class="search-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search movies by title..."
+          />
+        </div>
+
+        <div class="toolbar">
+          <p id="count-label">0 movies found</p>
+          <div class="view-toggles">
+            <button
+              class="toggle-btn active"
+              id="btn-grid"
+              onclick="setView('grid')"
+              aria-label="Grid view"
+            >
+              <i class="fa-solid fa-border-all"></i>
+            </button>
+            <button
+              class="toggle-btn"
+              id="btn-list"
+              onclick="setView('list')"
+              aria-label="List view"
+            >
+              <i class="fa-solid fa-list"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="movies-container" class="movies-grid"></div>
+
+      <div id="empty-state" class="hidden">
+        <div class="empty-icon"><i class="fa-solid fa-film"></i></div>
+        <p>No movies found. Try searching for "Inception" or "Marvel".</p>
+      </div>
+    </div>
+
+    <div id="modal-overlay" class="hidden">
+      <div class="modal-card">
+        <button id="close-btn">&times;</button>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
