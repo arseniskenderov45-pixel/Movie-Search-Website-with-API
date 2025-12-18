@@ -28,5 +28,7 @@
 1.  Скачайте этот репозиторий.
 2.  Откройте файл `index.html` в браузере.
 
+[Дизайн в Figma](https://www.figma.com/make/2TCOB9gLqd1Pg0fHgLyyd9/Simple-Movie-Search?fullscreen=1&t=pi5PWJGFflHriZOP-1)
 ---
 **Разработчик:** Iskenderov Arsen
+
